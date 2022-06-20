@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:currency-validator="http://www.mulesoft.org/schema/mule/currency-validator"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/currency-validator http://www.mulesoft.org/schema/mule/currency-validator/current/mule-currency-validator.xsd">
+
+    <currency-validator:config name="config" configId="configId">
+        <currency-validator:connection requiredParameter="aValue" />
+    </currency-validator:config>
+
+    <flow name="sayHiFlow">
+        <currency-validator:say-hi person="Mariano Gonzalez"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <currency-validator:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>
